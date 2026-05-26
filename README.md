@@ -10,7 +10,7 @@
 [![Recharts](https://img.shields.io/badge/Recharts-2-FF6384)](https://recharts.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**[Live Demo]([https://pulse-dashboard.vercel.app](https://pulse-dashboard-two-psi.vercel.app/dashboard))** · **[Report Bug](../../issues)** · **[Request Feature](../../issues)**
+**[Live Demo](https://pulse-dashboard.vercel.app) · **[Report Bug](../../issues)** · **[Request Feature](../../issues)**
 
 </div>
 
