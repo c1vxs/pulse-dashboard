@@ -14,12 +14,6 @@
 
 </div>
 
-<br>
-
-<p align="center">
-  <img src="docs/hero.png" alt="Pulse Dashboard - Overview page" width="900">
-</p>
-
 ## About
 
 Pulse is a responsive, dark-themed analytics dashboard that demonstrates production patterns in a modern Next.js front-end: App Router, Server vs. Client components, composable charts, and a custom design system. Built as a portfolio piece to show fluency in React and Next.js fundamentals.
@@ -55,7 +49,7 @@ Pulse is a responsive, dark-themed analytics dashboard that demonstrates product
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/pulse-dashboard.git
+git clone https://github.com/c1vxs/pulse-dashboard.git
 cd pulse-dashboard
 npm install
 ```
@@ -130,7 +124,7 @@ pulse-dashboard/
 
 Deploy in one click with Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR-USERNAME/pulse-dashboard)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/c1vxs/pulse-dashboard)
 
 ## License
 
