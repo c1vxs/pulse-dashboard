@@ -141,6 +141,6 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-Built by **Chris Atahan** · [LinkedIn](https://linkedin.com) · [Portfolio](https://example.com)
+Built by **Christina Tahan** · [LinkedIn](https://www.linkedin.com/in/chris-tahan-2787b929b/) 
 
 </div>
