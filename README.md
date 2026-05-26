@@ -1,144 +1,176 @@
-# Pulse — Analytics Dashboard
+<div align="center">
 
-A modern SaaS-style analytics dashboard built with **Next.js 14 (App Router)**, **React**, **Tailwind CSS**, and **Recharts**.
+# Pulse
 
-Three pages, a dozen reusable components, interactive filters, charts, and a searchable/sortable data table. Designed to be a strong portfolio piece for a front-end internship application.
+### A modern analytics dashboard built with Next.js, React, and Recharts.
 
----
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38BDF8?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Recharts](https://img.shields.io/badge/Recharts-2-FF6384)](https://recharts.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Run it locally
+**[Live Demo](https://pulse-dashboard.vercel.app)** · **[Report Bug](../../issues)** · **[Request Feature](../../issues)**
 
-You need Node.js 18.17+ installed. Check with `node --version`. If you don't have it, download from [nodejs.org](https://nodejs.org).
+</div>
 
-From inside this folder:
+<br>
+
+<p align="center">
+  <img src="docs/hero.png" alt="Pulse Dashboard - Overview page" width="900">
+</p>
+
+## About
+
+Pulse is a responsive, dark-themed analytics dashboard that demonstrates production patterns in a modern Next.js front-end: App Router, Server vs. Client components, composable charts, and a custom design system. Built as a portfolio piece to show fluency in React and Next.js fundamentals.
+
+## Features
+
+- **Three full pages** — Overview, Analytics, and Customers, each with its own layout and data needs.
+- **Interactive charts** — Area, stacked bar, donut, grouped bar, and sparkline visualizations powered by Recharts.
+- **Searchable data table** — Multi-column sort, plan filter, live row count and MRR total, all derived with `useMemo`.
+- **Responsive layout** — Sidebar collapses on mobile; grids reflow at `md` and `lg` breakpoints.
+- **Custom dark theme** — Cohesive palette defined in `tailwind.config.js`, themed Recharts tooltips, custom scrollbars.
+- **Date-range filter** — Stateful filter component reused across Overview and Analytics pages.
+
+## Screenshots
+
+<table>
+<tr>
+<td width="50%">
+<p align="center"><b>Overview</b></p>
+<img src="docs/dashboard.png" alt="Overview page" width="100%">
+</td>
+<td width="50%">
+<p align="center"><b>Analytics</b></p>
+<img src="docs/analytics.png" alt="Analytics page" width="100%">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p align="center"><b>Customers</b></p>
+<img src="docs/customers.png" alt="Customers page" width="100%">
+</td>
+<td width="50%">
+<p align="center"><b>Conversion Funnel</b></p>
+<img src="docs/funnel.png" alt="Conversion funnel" width="100%">
+</td>
+</tr>
+</table>
+
+## Tech Stack
+
+| Layer        | Choice                              | Why                                                       |
+|--------------|-------------------------------------|-----------------------------------------------------------|
+| Framework    | [Next.js 14](https://nextjs.org)    | App Router, Server Components, file-based routing.        |
+| UI Library   | [React 18](https://react.dev)       | Functional components and hooks throughout.               |
+| Styling      | [Tailwind CSS](https://tailwindcss.com) | Utility-first; consistent custom theme.               |
+| Charts       | [Recharts](https://recharts.org)    | Composable React chart primitives.                        |
+| Icons        | [Lucide](https://lucide.dev)        | Clean, consistent SVG icon set.                           |
+| Deployment   | [Vercel](https://vercel.com)        | Zero-config Next.js hosting.                              |
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org) 18.17 or newer
+- npm (ships with Node)
+
+### Installation
 
 ```bash
+git clone https://github.com/YOUR-USERNAME/pulse-dashboard.git
+cd pulse-dashboard
 npm install
+```
+
+### Development
+
+```bash
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000). The home page redirects to `/dashboard`.
+Open [http://localhost:3000](http://localhost:3000) — the home page redirects to `/dashboard`.
 
-To build for production:
+### Production build
 
 ```bash
 npm run build
 npm start
 ```
 
----
-
-## What's in here
+## Project Structure
 
 ```
 pulse-dashboard/
 ├── src/
-│   ├── app/                   # Next.js App Router pages
+│   ├── app/                   # Next.js App Router
 │   │   ├── layout.jsx         # Root layout (sidebar + topbar)
 │   │   ├── page.jsx           # Redirects to /dashboard
 │   │   ├── globals.css        # Tailwind + custom styles
-│   │   ├── dashboard/page.jsx # Overview: KPIs, revenue, users, traffic
-│   │   ├── analytics/page.jsx # Channels, funnel, deeper charts
-│   │   └── customers/page.jsx # Searchable/sortable customer table
+│   │   ├── dashboard/         # Overview page
+│   │   ├── analytics/         # Analytics page
+│   │   └── customers/         # Customers page
 │   ├── components/            # Reusable React components
-│   │   ├── Sidebar.jsx        # Nav with active-link highlight (usePathname)
+│   │   ├── Sidebar.jsx        # Nav with active-link highlight
 │   │   ├── Topbar.jsx
-│   │   ├── KpiCard.jsx        # KPI card with sparkline
-│   │   ├── RevenueChart.jsx   # Recharts AreaChart with gradient fill
-│   │   ├── UsersChart.jsx     # Recharts stacked BarChart
-│   │   ├── TrafficChart.jsx   # Recharts donut PieChart
-│   │   ├── ChannelChart.jsx   # Recharts grouped BarChart
+│   │   ├── KpiCard.jsx        # KPI card with inline sparkline
+│   │   ├── RevenueChart.jsx   # AreaChart with gradient fill
+│   │   ├── UsersChart.jsx     # Stacked BarChart
+│   │   ├── TrafficChart.jsx   # Donut PieChart
+│   │   ├── ChannelChart.jsx   # Grouped BarChart
 │   │   ├── ConversionFunnel.jsx
 │   │   ├── ActivityFeed.jsx
-│   │   ├── DateRangeFilter.jsx# Stateful filter (useState)
-│   │   └── DataTable.jsx      # Search, multi-sort, plan filter (useMemo)
+│   │   ├── DateRangeFilter.jsx
+│   │   └── DataTable.jsx      # Search + multi-sort + filter
 │   └── lib/
-│       └── mockData.js        # All mock data lives here
-├── package.json
+│       └── mockData.js        # All mock data
+├── docs/                      # Screenshots for README
 ├── tailwind.config.js
 ├── next.config.mjs
-└── README.md
+└── package.json
 ```
 
----
+## What This Project Demonstrates
 
-## Tech stack
+- **App Router fluency** — nested routes, root layout, `redirect()` from a Server Component, `usePathname()` for active-link state.
+- **Server vs. Client components** — pages default to Server Components; interactivity opts in with `"use client"`.
+- **React hooks in real contexts** — `useState` for filters and toggles, `useMemo` for derived table state.
+- **Component composition** — chart, KPI, and filter components reused across pages.
+- **Custom design system** — named colors in Tailwind config, consistent spacing scale, themed third-party UI (Recharts tooltips, scrollbars).
+- **Responsive design** — grids reflow gracefully from mobile to desktop.
 
-| Tech         | Why                                                       |
-|--------------|-----------------------------------------------------------|
-| Next.js 14   | Industry-standard React framework. App Router is current. |
-| React 18     | Functional components + hooks (`useState`, `useMemo`).    |
-| Tailwind CSS | Utility-first CSS, fast to iterate, looks professional.   |
-| Recharts     | Composable React chart library, widely used.              |
-| lucide-react | Clean SVG icon set.                                       |
+## Roadmap
 
----
+- [ ] Migrate to TypeScript
+- [ ] Replace mock data with a real API layer (SWR or React Query)
+- [ ] URL-driven filter state (`useSearchParams`)
+- [ ] Server-side pagination on the customers table
+- [ ] NextAuth for authentication
+- [ ] Unit tests with Vitest + Testing Library
+- [ ] Dark / light theme toggle
 
-## What this project demonstrates
+## Deploy Your Own
 
-A reviewer looking at this code will see:
+Deploy in one click with Vercel:
 
-- **App Router fluency** — root layout, nested routes (`/dashboard`, `/analytics`, `/customers`), `redirect()` in a Server Component, `usePathname()` for active-link state.
-- **Server vs Client components** — pages are Server Components by default; interactive pieces opt in with `"use client"`.
-- **Hooks** — `useState` for filters and toggles, `useMemo` to memoize sorted/filtered table rows.
-- **Component composition** — KPI card, chart, and table components are reused across pages.
-- **Data visualization** — five chart types (Area, Bar, stacked Bar, Pie/donut, sparkline) plus a custom CSS funnel.
-- **Responsive design** — Tailwind responsive utilities (`md:`, `lg:`); grids collapse on mobile.
-- **A custom design system** — dark theme with named colors in `tailwind.config.js`, consistent spacing, custom scrollbars, themed Recharts tooltips.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR-USERNAME/pulse-dashboard)
 
----
+## License
 
-## For your CV
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
-Pick the bullets that fit. Tweak the wording so it sounds like you.
+## Acknowledgements
 
-> **Pulse — Analytics Dashboard** · Next.js, React, Tailwind, Recharts · [github.com/chris/pulse-dashboard]
-> - Built a responsive SaaS-style analytics dashboard with three pages (overview, analytics, customers) using **Next.js 14 App Router**, Server and Client components, and custom Tailwind theming.
-> - Implemented five interactive **Recharts** visualizations (area, stacked bar, donut, grouped bar, sparkline) backed by a mock data layer that mirrors a real API contract.
-> - Built a searchable, multi-column-sortable customer table with derived state memoized via `useMemo`; supports plan filtering and live MRR totals.
-> - Designed a cohesive dark UI with reusable components (KPI card, chart container, filter bar) and accessible interactive states.
-
-If you want to tie this to VasariAI on your CV:
-
-> - Rebuilt VasariAI's internal reporting UI as a Next.js front-end with interactive Recharts visualizations (see *Pulse* repo for the public version).
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Recharts Examples](https://recharts.org/en-US/examples)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Lucide Icons](https://lucide.dev)
 
 ---
 
-## What to say in interviews
+<div align="center">
 
-Likely questions, and what's actually true about this code:
+Built by **Chris Atahan** · [LinkedIn](https://linkedin.com) · [Portfolio](https://example.com)
 
-**"Walk me through how this is structured."**
-Next.js 14 App Router. Root layout in `src/app/layout.jsx` wraps every page with a Sidebar and Topbar. Each route is a folder under `src/app/` with a `page.jsx`. Pages that need interactivity (filters, sorting) use `"use client"`; everything else is a Server Component by default.
-
-**"Why Server vs Client components?"**
-Server Components render on the server and ship less JS to the browser — good default. I opt into Client Components only when a piece needs state, effects, or browser-only APIs. For example, `Sidebar` uses `usePathname()` (browser API) so it has `"use client"`. The customer table needs `useState` and `useMemo`, so it's a client component too. The customers *page itself* could be a Server Component that just renders the table.
-
-**"How does the data table sort?"**
-Local state holds the sort key and direction. A `useMemo` recomputes the sorted/filtered rows when any of `query`, `sort`, or `planFilter` changes. Clicking a header toggles the direction if it's the same column, or sets a new column with ascending direction.
-
-**"How would you connect this to a real backend?"**
-Replace the imports from `lib/mockData.js` with `fetch()` calls in Server Components (Next.js automatically deduplicates and caches them). For client-side reactivity I'd use SWR or React Query. Mutations would go through Next.js Route Handlers or Server Actions.
-
-**"What would you do next?"**
-Add TypeScript, real auth (NextAuth), a database (Postgres + Prisma), URL-driven filter state (`useSearchParams`), pagination on the table, and tests with Vitest + Testing Library.
-
----
-
-## Customizing
-
-- **Change the brand name / colors**: edit `tailwind.config.js` (color palette) and `src/components/Sidebar.jsx` (logo + name).
-- **Swap mock data for real data**: edit `src/lib/mockData.js`, or replace it with `fetch()` calls inside Server Components.
-- **Add a page**: create `src/app/<route>/page.jsx` and add an entry to `navItems` in `Sidebar.jsx`.
-
----
-
-## Deploying
-
-The fastest way is [Vercel](https://vercel.com) (made by the team behind Next.js):
-
-1. Push this folder to a new GitHub repo.
-2. Go to Vercel, click **New Project**, import the repo.
-3. Click Deploy. Done — you get a public URL.
-
-A public URL is a huge plus on a CV. Add it next to the project name.
+</div>
