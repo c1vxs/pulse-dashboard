@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+  background-color: #0b0f17;
+  color: #e6edf7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar — subtle dark */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2a3d;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3853;
+}
+
+/* Recharts tweaks for dark theme */
+.recharts-cartesian-axis-tick text {
+  fill: #7c8aa3;
+  font-size: 12px;
+}
+.recharts-default-tooltip {
+  background-color: #111826 !important;
+  border: 1px solid #1f2a3d !important;
+  border-radius: 8px !important;
+  color: #e6edf7 !important;
+}
+.recharts-tooltip-label {
+  color: #e6edf7 !important;
+}
