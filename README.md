@@ -33,30 +33,6 @@ Pulse is a responsive, dark-themed analytics dashboard that demonstrates product
 - **Custom dark theme** — Cohesive palette defined in `tailwind.config.js`, themed Recharts tooltips, custom scrollbars.
 - **Date-range filter** — Stateful filter component reused across Overview and Analytics pages.
 
-## Screenshots
-
-<table>
-<tr>
-<td width="50%">
-<p align="center"><b>Overview</b></p>
-<img src="docs/dashboard.png" alt="Overview page" width="100%">
-</td>
-<td width="50%">
-<p align="center"><b>Analytics</b></p>
-<img src="docs/analytics.png" alt="Analytics page" width="100%">
-</td>
-</tr>
-<tr>
-<td width="50%">
-<p align="center"><b>Customers</b></p>
-<img src="docs/customers.png" alt="Customers page" width="100%">
-</td>
-<td width="50%">
-<p align="center"><b>Conversion Funnel</b></p>
-<img src="docs/funnel.png" alt="Conversion funnel" width="100%">
-</td>
-</tr>
-</table>
 
 ## Tech Stack
 
